@@ -13,7 +13,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/admin/rooms', function(req, res){
-  res.render("rooms", { 
+  res.render("rooms", {
       title: "Admin Rooms",
       rooms: rooms
     });
