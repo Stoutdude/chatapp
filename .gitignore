@@ -1,3 +1,7 @@
+#VS code debugger stuff
+.vscode
+jsconfig.json
+
 # Apple file
 .DS_Store
 
