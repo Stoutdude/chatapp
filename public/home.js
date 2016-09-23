@@ -16,12 +16,13 @@ $(function () {
     });
 
     $("#post").click(function () {
-        var message = {text: $("#message").val()};
+        var message = { text: $("#message").val() };
 
         $.ajax({
             type: "POST",
             url: "/api/rooms/" + roomId + "/messages",
-            data: message
+            data: JSON.stringify(message),
+            contentType: "application/json"
         }).success(function () {
             $("#message").val("");
             getMessages();
@@ -47,7 +48,7 @@ $(function () {
         });
     }
 
-    $("#delete").click(function(){
+    $("#delete").click(function () {
         $.ajax({
             type: "DELETE",
             url: "/api/rooms/" + roomId + "/messages",
