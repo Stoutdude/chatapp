@@ -9,13 +9,19 @@ app.use(express.static("public"));
 app.use(express.static("node_modules/bootstrap/dist"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.get('/', function(req, res){
+// app.use(function (req, res, next) {
+//   console.log(`Request: ${req.url}`);
+//   next();
+// });
+
+app.get('/', function (req, res) {
   res.render("index", { title: "Home" });
 });
 
-var admin = require("./admin");
-admin(app);
+var adminRouter = require("./admin");
+app.use("/admin", adminRouter);
 
-app.listen(3000, function() {
+
+app.listen(3000, function () {
   console.log('Chat app is listening on port 3000!');
 });
