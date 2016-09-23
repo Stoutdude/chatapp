@@ -4,7 +4,6 @@ var uuid = require("node-uuid");
 var rooms = require("./data/rooms.json");
 var messages = require("./data/messages.json");
 
-
 var router = express.Router();
 module.exports = router;
 
