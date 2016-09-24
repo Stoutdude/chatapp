@@ -32,8 +32,9 @@ app.use(passport.session());
 var authRouter = require("./auth");
 app.use(authRouter);
 
-app.use(function(req, res, next){
-  if(req.isAuthenticated()){
+app.use(function (req, res, next) {
+  if (req.isAuthenticated()) {
+    res.locals.user = req.user;
     next();
     return;
   }
